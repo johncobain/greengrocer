@@ -40,7 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   isObscure = !isObscure;
                 });
               }, 
-              icon: Icon(isObscure?Icons.visibility:Icons.visibility_off)
+              icon: Icon(isObscure?Icons.visibility:Icons.visibility_off),
               )
             : null,
           prefixIcon: Icon(widget.icon),
