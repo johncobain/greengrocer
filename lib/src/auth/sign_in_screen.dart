@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/auth/components/custom_text_field.dart';
 import 'package:greengrocer/src/auth/sign_up_screen.dart';
+import 'package:greengrocer/src/base/base_screen.dart';
 import 'package:greengrocer/src/config/custon_colors.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -9,7 +10,6 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -32,12 +32,11 @@ class SignInScreen extends StatelessWidget {
                         ),
                         children: [
                           const TextSpan(
-                            text: 'Green',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )
-                          ),
+                              text: 'Green',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              )),
                           TextSpan(
                             text: 'grocer',
                             style: TextStyle(
@@ -46,9 +45,9 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                     ),
-                     //Categorias
-                     SizedBox(
+                    ),
+                    //Categorias
+                    SizedBox(
                       height: 30,
                       child: DefaultTextStyle(
                         style: const TextStyle(
@@ -65,17 +64,16 @@ class SignInScreen extends StatelessWidget {
                             FadeAnimatedText('Cereais'),
                             FadeAnimatedText('Laticíneos'),
                           ],
-                         ),
-                       ),
-                     ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
               //Formulário
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32, vertical: 40
-                  ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(45)),
@@ -104,7 +102,12 @@ class SignInScreen extends StatelessWidget {
                           backgroundColor: Colors.green,
                           foregroundColor: Colors.white,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(builder: (c) {
+                            return const BaseScreen();
+                          }));
+                        },
                         child: const Text(
                           'Entrar',
                           style: TextStyle(
@@ -155,32 +158,25 @@ class SignInScreen extends StatelessWidget {
                       height: 50,
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18)
-                          ),
-                          side: const BorderSide(
-                            width: 2,
-                            color: Colors.green
-                          )
-                        ),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18)),
+                            side: const BorderSide(
+                                width: 2, color: Colors.green)),
                         onPressed: () {
                           Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (c){
-                                return SignUpScreen();
-                              }
-                            ),
+                            MaterialPageRoute(builder: (c) {
+                              return SignUpScreen();
+                            }),
                           );
                         },
-                        child: const Text('Criar conta', 
+                        child: const Text(
+                          'Criar conta',
                           style: TextStyle(
                             fontSize: 18,
                           ),
                         ),
                       ),
                     ),
-          
-                  
                   ],
                 ),
               ),
